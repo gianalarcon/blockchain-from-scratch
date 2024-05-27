@@ -66,7 +66,11 @@ impl StateMachine for Atm {
                 }
                 _ => {}
             },
-            _ => todo!("Implement the rest of the state machine"),
+            Action::PressKey(Key::One) => match &starting_state.expected_pin_hash {
+                Auth::Waiting => {}
+                _ => {}
+            },
+            _ => {}
         }
         new_state
     }
